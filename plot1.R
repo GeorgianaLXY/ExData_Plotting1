@@ -12,10 +12,11 @@ data = data[, c(-1,-2)]
 start_point <- strptime("31/01/2007 23:59:00", format = "%d/%m/%Y %H:%M:%S")
 end_point <- strptime("03/02/2007 00:00:00", format = "%d/%m/%Y %H:%M:%S")
 data_clean = data[which(data$time > start_point),]
-data_clean = data[which(data$time < end_point),]
+data_clean = data_clean[which(data_clean$time < end_point),]
 
 #plot histogram
-Global_active_power = sapply(data_clean["Global_active_power"][[1]], as.numeric)
+Global_active_power = data_clean["Global_active_power"][[1]]
+Global_active_power = as.numeric(levels(Global_active_power)[Global_active_power])
 png(filename = "plot1.png")
 hist(Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 dev.off()
