@@ -11,8 +11,7 @@ data = data[, c(-1,-2)]
 #select designated time_period
 start_point <- strptime("31/01/2007 23:59:00", format = "%d/%m/%Y %H:%M:%S")
 end_point <- strptime("03/02/2007 00:00:00", format = "%d/%m/%Y %H:%M:%S")
-data_clean = data[which(data$time > start_point),]
-data_clean = data_clean[which(data_clean$time < end_point),]
+data_clean = data[which((data$time > start_point) & (data$time < end_point)),]
 
 #plot histogram
 Global_active_power = data_clean["Global_active_power"][[1]]
