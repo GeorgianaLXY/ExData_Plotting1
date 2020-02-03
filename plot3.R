@@ -19,4 +19,4 @@ with(data_clean, plot(time, Sub_metering_1, type = "l",xlab = "", ylab = "Energy
 with(data_clean, lines(time, Sub_metering_2, col = "red"))
 with(data_clean, lines(time, Sub_metering_3, col = "blue"))
 legend("topright", col = c("black","blue", "red"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), pch = c(NA, NA,NA ),merge = TRUE, lty = 1)
-dev.off
+dev.off()
